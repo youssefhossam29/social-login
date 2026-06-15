@@ -44,4 +44,12 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the social accounts for the user.
+     */
+    public function socialAccounts()
+    {
+        return $this->hasMany(SocialAccount::class);
+    }
 }
