@@ -23,7 +23,7 @@
         </style>
     </head>
     <body class="antialiased bg-gray-100 text-gray-900 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
-        
+
         <!-- Header / Navigation -->
         <header class="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -34,7 +34,7 @@
                 </div>
                 <span class="font-bold text-xl tracking-tight text-gray-900">SocialAuth</span>
             </div>
-            
+
             <nav class="flex items-center gap-4">
                 @if (Route::has('login'))
                     @auth
@@ -58,16 +58,16 @@
                 <span class="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full border border-indigo-100 inline-block mb-6 uppercase tracking-wider">
                     Laravel Socialite Integration
                 </span>
-                
+
                 <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
                     One-Click Authentication
                 </h1>
-                
+
                 <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto leading-relaxed">
                     A clean demonstration project for implementing social authentication using Google OAuth in a Laravel environment. Easy, secure, and user-friendly.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div class="w-full max-w-md mx-auto">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-md transition flex items-center justify-center gap-2">
                             <span>Go to Dashboard</span>
@@ -82,16 +82,38 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </a>
-                        
-                        <a href="{{ route('social.redirect', ['provider' => 'google']) }}" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 font-medium rounded-xl transition shadow-sm flex items-center justify-center gap-2">
-                            <svg class="h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                            </svg>
-                            <span>Sign in with Google</span>
-                        </a>
+
+                        <!-- Divider -->
+                        <div class="my-6 flex items-center justify-between">
+                            <span class="border-b w-1/4 border-gray-200/60"></span>
+                            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Or Connect Instantly</span>
+                            <span class="border-b w-1/4 border-gray-200/60"></span>
+                        </div>
+
+                        <!-- Social Login Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Google -->
+                            <a href="{{ route('social.redirect', ['provider' => 'google']) }}" class="flex items-center justify-center gap-3 px-4 py-3.5 border border-gray-200/80 rounded-2xl shadow-sm text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 ease-in-out transform">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                                </svg>
+                                <span>Google</span>
+                            </a>
+
+                            <!-- Microsoft -->
+                            <a href="{{ route('social.redirect', ['provider' => 'microsoft']) }}" class="flex items-center justify-center gap-3 px-4 py-3.5 border border-gray-200/80 rounded-2xl shadow-sm text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 ease-in-out transform">
+                                <svg class="h-4 w-4" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0" y="0" width="11" height="11" fill="#f25022"/>
+                                    <rect x="12" y="0" width="11" height="11" fill="#7fba00"/>
+                                    <rect x="0" y="12" width="11" height="11" fill="#00a4ef"/>
+                                    <rect x="12" y="12" width="11" height="11" fill="#ffb900"/>
+                                </svg>
+                                <span>Microsoft</span>
+                            </a>
+                        </div>
                     @endauth
                 </div>
 
@@ -100,8 +122,8 @@
                     <div class="flex items-start gap-3">
                         <div class="h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 mt-0.5">✓</div>
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-900">Google OAuth</h3>
-                            <p class="text-xs text-gray-500">Fast, secure login via Google Socialite provider.</p>
+                            <h3 class="text-sm font-semibold text-gray-900">Google & Microsoft</h3>
+                            <p class="text-xs text-gray-500">Fast, secure login via Google and Microsoft Socialite providers.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
