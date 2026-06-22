@@ -91,7 +91,7 @@
                         </div>
 
                         <!-- Social Login Buttons -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-2 gap-4">
                             <!-- Google -->
                             <a href="{{ route('social.redirect', ['provider' => 'google']) }}" class="flex items-center justify-center gap-3 px-4 py-3.5 border border-gray-200/80 rounded-2xl shadow-sm text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 ease-in-out transform">
                                 <svg class="h-5 w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -121,6 +121,14 @@
                                 </svg>
                                 <span>GitHub</span>
                             </a>
+
+                            <!-- X -->
+                            <a href="{{ route('social.redirect', ['provider' => 'x']) }}" class="flex items-center justify-center gap-3 px-4 py-3.5 border border-gray-200/80 rounded-2xl shadow-sm text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 ease-in-out transform">
+                                <svg class="h-4 w-4 fill-current text-gray-900" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                                <span>X</span>
+                            </a>
                         </div>
                     @endauth
                 </div>
@@ -130,8 +138,8 @@
                     <div class="flex items-start gap-3">
                         <div class="h-6 w-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 mt-0.5">✓</div>
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-900">Google, Microsoft & GitHub</h3>
-                            <p class="text-xs text-gray-500">Fast, secure login via Google, Microsoft, and GitHub Socialite providers.</p>
+                            <h3 class="text-sm font-semibold text-gray-900">Google, Microsoft, GitHub & X</h3>
+                            <p class="text-xs text-gray-500">Fast, secure login via Google, Microsoft, GitHub, and X Socialite providers.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">

@@ -18,7 +18,7 @@ class SocialAuthController extends Controller
      */
     public function redirect(string $provider)
     {
-        if (!in_array($provider, ['google', 'microsoft', 'github'])) {
+        if (!in_array($provider, ['google', 'microsoft', 'github', 'x'])) {
             return redirect()->route('login')->with('error', 'The selected OAuth provider is not supported.');
         }
 
@@ -34,7 +34,7 @@ class SocialAuthController extends Controller
     public function callback(string $provider)
     {
         // Verify provider is supported
-        if (!in_array($provider, ['google', 'microsoft', 'github'])) {
+        if (!in_array($provider, ['google', 'microsoft', 'github', 'x'])) {
             return redirect()->route('login')->with('error', 'The selected OAuth provider is not supported.');
         }
 
