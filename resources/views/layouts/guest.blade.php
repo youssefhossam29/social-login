@@ -14,19 +14,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <div class="h-16 w-16 rounded-2xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30 text-white transition hover:scale-105 duration-150">
-                        <x-application-logo class="w-10 h-10 stroke-current" />
-                    </div>
-                </a>
-            </div>
+    <body class="font-sans text-gray-900 antialiased min-h-screen flex flex-col justify-between bg-gray-100">
+        @include('layouts.header')
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="flex-grow flex flex-col justify-center items-center py-12 px-4">
+            <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
+
+        @include('layouts.footer')
     </body>
 </html>
