@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 use SocialiteProviders\Microsoft\Provider as MicrosoftProvider;
+use SocialiteProviders\Discord\Provider as DiscordProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
         // Register the Microsoft provider with Socialite
         Event::listen(function (SocialiteWasCalled $event) {
             $event->extendSocialite('microsoft', MicrosoftProvider::class);
+        });
+
+        // Register the Discord provider with Socialite
+        Event::listen(function (SocialiteWasCalled $event) {
+            $event->extendSocialite('discord', DiscordProvider::class);
         });
     }
 }
